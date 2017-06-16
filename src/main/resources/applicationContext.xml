@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="customerRepository"
+		class="com.pluralsight.repository.HibernateCustomerRepositoryImpl"></bean>
+
+	<!-- Setter injection -->
+	<!-- <bean name="customerService" class="com.pluralsight.service.CustomerServiceImpl">
+		<property name="custRepository" ref="customerRepository" />
+	</bean> -->
+	<!-- Ends -->
+
+	<!-- Constuctor injection -->
+
+	<!-- <bean name="customerService" class="com.pluralsight.service.CustomerServiceImpl">
+		Index is an optional parameter
+		<constructor-arg index="0" ref="customerRepository" />
+		<constructor-arg value="testStringPassed" />
+		<constructor-arg value="testStringPassed1" />
+	</bean> -->
+	<!-- Ends -->
+
+	<!-- Autowire injection -->
+	<!-- By Constructor; looks for constructor -->
+<!-- 	<bean name="customerService" class="com.pluralsight.service.CustomerServiceImpl"
+		autowire="constructor" /> -->
+		
+		<!-- By Type; looks for setter -->
+	<!-- 	<bean name="customerService" class="com.pluralsight.service.CustomerServiceImpl"
+		autowire="byType" /> -->
+		
+		<!-- By Type; looks for setter but setter name should be same as bean name-->
+		<bean name="customerService" class="com.pluralsight.service.CustomerServiceImpl"
+		autowire="byName" />
+		
+		
+	<!-- Ends -->
+
+
+</beans>
